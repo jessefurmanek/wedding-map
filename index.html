@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiamVzc2VmdXJtYW5layIsImEiOiJQTkVqSGlNIn0._dhR_OHHz9JVTYxRevLUZQ';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/jessefurmanek/ciqhcjez3000jccnoqu59z770', //stylesheet location
+    center: [-87.6335035, 41.8984495], // starting position
+    zoom: 13 // starting zoom
+});
+
+map.on('load', function () {
+    map.addSource("points", {
+        "type": "geojson",
+        "data": {
+            "type": "FeatureCollection",
+            "features": [{
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.633973, 41.919267]
+                },
+                "properties": {
+                    "title": "Cafe Brauer",
+                    "description": "words",
+                    "icon": "toilet"
+                }
+            }, {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.6278231, 41.8935352]
+                },
+                "properties": {
+                    "title": "AC Hotel",
+                    "icon": "embassy"
+                }
+            }, {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.627920, 41.892776]
+                },
+                "properties": {
+                    "title": "Watershed",
+                    "icon": "bar"
+                }
+            }, {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.615008, 41.892708]
+                },
+                "properties": {
+                    "title": "Lakeshore Path Entrance",
+                    "icon": "swimming"
+                }
+            },{
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.621796, 41.897192]
+                },
+                "properties": {
+                    "title": "MCA",
+                    "icon": "museum"
+                }
+            },{
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.624985, 41.881655]
+                },
+                "properties": {
+                    "title": "Cindy's Rooftop Bar",
+                    "icon": "bar"
+                }
+            },  {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.638183, 41.893818]
+                },
+                "properties": {
+                    "title": "Asado Coffee",
+                    "icon": "cafe"
+                }
+            }]
+        }
+    });
+
+    map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": "points",
+        "layout": {
+            "icon-image": "{icon}-15",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+        }
+    });
+});
+
+// When a click event occurs near a place, open a popup at the location of
+// the feature, with description HTML from its properties.
+map.on('click', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
+
+    if (!features.length) {
+        return;
+    }
+
+    var feature = features[0];
+
+    // Populate the popup and set its coordinates
+    // based on the feature found.
+    var popup = new mapboxgl.Popup()
+        .setLngLat(feature.geometry.coordinates)
+        .setHTML(feature.properties.description)
+        .addTo(map);
+});
+
+// Use the same approach as above to indicate that the symbols are clickable
+// by changing the cursor style to 'pointer'.
+map.on('mousemove', function (e) {
+    var features = map.queryRenderedFeatures(e.point, { layers: ['places'] });
+    map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+});
+
+</script>
+
+</body>
+</html>
