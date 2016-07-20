@@ -6,6 +6,7 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet' />
+    <link href='style.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -37,7 +38,7 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "Cafe Brauer",
-                    "description": "Where we’ll be getting married 👫",
+                    "description": "Where we’ll be getting married 👫.",
                     "icon": "toilet",
                     "color": 1
                 }
@@ -49,7 +50,7 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "AC Hotel",
-                    "description": "Where many of the guests will be staying",
+                    "description": "Where many of the guests will be staying.",
                     "icon": "embassy",
                     "color": 1
                 }
@@ -61,7 +62,7 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "Watershed",
-                    "description": "A speakeasy with some delicious whiskey cocktails",
+                    "description": "A speakeasy with some delicious whiskey cocktails.",
                     "icon": "bar",
                     "color": 1
                 }
@@ -73,7 +74,7 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "Lakeshore Path Entrance",
-                    "description": "Great for running or just checking out the lake",
+                    "description": "Great for running or just checking out the lake.",
                     "icon": "swimming",
                     "color": 1
                 }
@@ -85,7 +86,7 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "MCA",
-                    "description": " The Museum of Contemporary Art is not as well known as the Art Institute of Chicago, but nevertheless offers an artsy escape from the bustle of the city",
+                    "description": " The Museum of Contemporary Art is not as well known as the Art Institute of Chicago, but nevertheless offers an artsy escape from the bustle of the city.",
                     "icon": "museum",
                     "color": 1
                 }
@@ -98,7 +99,7 @@ map.on('load', function () {
                 "properties": {
                     "title": "Cindy's Rooftop Bar",
                     "icon": "bar",
-                    "description": " A rooftop bar at the top of the Chicago Athletic Association — delicious drinks and gorgeous views of Millennium Park",
+                    "description": " A rooftop bar at the top of the Chicago Athletic Association — delicious drinks and gorgeous views of Millennium Park.",
                     "color": 1
                 }
             },  {
@@ -109,7 +110,8 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "Asado Coffee",
-                    "description": "If you like like delicious coffee, be sure to check out Asado (Bowtruss and Intelligentsia are also delicious options in the area) ",
+                    "description": "If you like like delicious coffee, be sure to check out Asado (Bowtruss and Intelligentsia are also delicious options in the area).\n\n \
+                      <a target='_blank' href='https://goo.gl/maps/XKhW9ESHiQy' data-toggle='modal'>View in Google Maps</a>",
                     "icon": "cafe",
                     "color": 0
                 }
@@ -121,11 +123,48 @@ map.on('load', function () {
                 },
                 "properties": {
                     "title": "Xoco",
-                    "description": "A relatively inexpensive lunch spot with great tortas and other Mexican-influenced fare",
+                    "description": "A relatively inexpensive lunch spot with great tortas and other Mexican-influenced fare.",
                     "icon": "fast-food",
                     "color": 0
                 }
-            }]
+            },  {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.626474, 41.893141]
+                },
+                "properties": {
+                    "title": "Pizzeria Due",
+                    "description": "Both Pizzeria Due (and the original Pizzeria Uno) are sooooo much better than their airport/chain counterparts.  Due's tends to have less of a line, but both are delicious examples of a Chicago-style slice🍕.",
+                    "icon": "fast-food",
+                    "color": 0
+                }
+            },  {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.629927, 41.884737]
+                },
+                "properties": {
+                    "title": "Do-Rite Donuts",
+                    "description": "People say the Donut Vault is the best donut in Chicago, but dollars for donuts, Do-Rite takes the cake 🍩",
+                    "icon": "ice-cream",
+                    "color": 0
+                }
+            },  {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-87.627782, 41.887062]
+                },
+                "properties": {
+                    "title": "Chicago Riverwalk",
+                    "description": "The river itself may leave a bit to be desired, but the Chicago Riverwalk offers a different perspective on the skyline and the city. A nice respite in the middle of the city.",
+                    "icon": "entrance",
+                    "color": 0
+                }
+            }
+          ]
         }
     });
 
